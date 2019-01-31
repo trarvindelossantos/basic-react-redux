@@ -1,10 +1,9 @@
 import uuid from 'uuid';
 
+
 const profileReducer = (state = {
-    id: "",
-    name: "",
-    contact: "",
-    address: "",
+    selected_profile: null,
+    isLoaded: false,
     profiles: [
         {
             id: uuid.v4(),
@@ -42,9 +41,35 @@ const profileReducer = (state = {
                 ]
             }
             break;
+        case "SET_PROFILE":
+           state = {
+               ...state,
+               isLoaded:false,
+               selected_profile: null
+           }
+            const profile = state.profiles.find( (profile) => {
+                if (action.payload === profile.id) {
+                    return {
+                        id: profile.id,
+                        name: profile.name,
+                        contact: profile.contact,
+                        address: profile.address
+                    };
+                }
+                return null;
+            });
+            
+            state = {
+                ...state,
+                isLoaded: true,
+                selected_profile: profile
+            };
+            
+            break;
         default:
              return state
     }
+    
     return state;
 };
 

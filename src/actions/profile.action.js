@@ -4,3 +4,10 @@ export function addProfile(profile){
         payload: profile
     }
 }
+
+export function setProfile(profile_id){
+    return {
+        type: "SET_PROFILE",
+        payload: profile_id
+    }
+}

@@ -1,5 +1,5 @@
-import { createStore, combineReducers } from 'redux';
-//import logger from 'redux-logger';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 
 import profile from './reducers/profile.reducer'
 
@@ -8,5 +8,5 @@ export default createStore(
         profile
     }),
     {},
-    //applyMiddleware(logger())
- )
+    applyMiddleware(createLogger())
+ ) 

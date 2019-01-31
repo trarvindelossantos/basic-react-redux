@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {addProfile} from '../../actions/profile.action';
 
 class Profile extends Component {
 
@@ -29,7 +27,7 @@ class Profile extends Component {
                                     <td>{profile.contact}</td>
                                     <td>{profile.address}</td>
                                     <td>
-                                        <NavLink to={`/profile/${profile.id}`} className="btn btn-primary btn-sm">View</NavLink>
+                                        <NavLink to={`/users/${profile.id}`} className="btn btn-primary btn-sm">View</NavLink>
                                     </td>
                                 </tr>
                             );
@@ -49,12 +47,4 @@ const  mapStateToProps = (state) => {
     }
 }
 
-const  mapDispatchToProps = (dispatch) => {
-    return {
-        addProfile: (profile) => {
-            dispatch(addProfile(profile));
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps)(Profile);

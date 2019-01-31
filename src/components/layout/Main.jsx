@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import Header from './Header'
 import MainRouter from '../MainRouter';
 
@@ -7,7 +7,7 @@ import MainRouter from '../MainRouter';
 class Main extends Component {
     render() {
         return (
-            <BrowserRouter>
+            <Router>
                 <React.Fragment>
                     <Header/>
                     <br/>
@@ -16,7 +16,7 @@ class Main extends Component {
                     </main>
                 </React.Fragment>
 
-            </BrowserRouter>
+            </Router>
         );
     }
 }
